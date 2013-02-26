@@ -9,7 +9,7 @@ class TestGame < TestHelper
     raw_game_hash = {
       :team_name => 'Detroit Lions',
       :day => 'Sunday',
-      :game_date => "1/2/11", #{}Date.new(2011, 1, 2),
+      :game_date => "1/2/11",
       :opponent => 'Minnesota',
       :result => 'W',
       :score => '20-13',

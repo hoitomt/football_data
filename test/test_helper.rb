@@ -6,8 +6,10 @@ require 'football_data/scrape'
 
 class TestHelper < Test::Unit::TestCase
   def setup
+    path = File.expand_path(File.dirname(__FILE__) + "/../lib/config/config.yml")
+    config_file = YAML::load(File.open(path))
     FootballData.configure do |config|
-      config.db_path = "postgres://hoitomt:badger@localhost/football_data_test"
+      config.db_path = config_file["test_db_path"]
     end
   end
 end

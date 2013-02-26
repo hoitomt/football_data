@@ -8,20 +8,17 @@ require 'dm-core'
 require 'dm-migrations'
 
 module FootballData
-  # DataMapper.setup(:default, "postgres://hoitomt:badger@localhost/football_data")
 
   class << self
     attr_accessor :db_path
 
     def configure
       yield self if block_given?
-      # db_path ||= "postgres://hoitomt:badger@localhost/football_data"
       DataMapper.setup(:default, self.db_path)
     end
 
     def get_data
       FootballData::Scrape.scrape_nfl
-      # p "Football"
     end
   end
 end

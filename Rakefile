@@ -15,15 +15,16 @@ end
 namespace :db do
 
   task :configure do
+    config_file = YAML::load(File.open("config/config.yml"))
     if ENV['tenv']
       p "Updating Test Database"
       FootballData.configure do |config|
-        config.db_path = "postgres://hoitomt:badger@localhost/football_data_test"
+        config.db_path = config_file.test_db_path
       end
     else
       p "Updating Database"
       FootballData.configure do |config|
-        config.db_path = "postgres://hoitomt:badger@localhost/football_data"
+        config.db_path = config_file.db_path
       end
     end
   end
@@ -62,8 +63,9 @@ namespace :games do
 
   desc "Configure the database"
   task :configure do
+    config_file = YAML::load(File.open("config/config.yml"))
     FootballData.configure do |config|
-      config.db_path = "postgres://hoitomt:badger@localhost/football_data"
+      config.db_path = config_file.db_path
     end
   end
 

@@ -1,6 +1,7 @@
 # FootballData
-
-TODO: Write a gem description
+This gem retrieves data from NFL football games and populates it in a database.
+Starting in the 1985 - 1986 season the following data is pulled for every NFL game up to the most recent concluded season
+week, date, home team, visiting team, home team score, visiting team score, home spread, and over under
 
 ## Installation
 
